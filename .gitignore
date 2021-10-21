@@ -1,0 +1,6 @@
+.Rproj.user/
+.Rhistory
+*.aux
+*.log
+*.synctex.gz
+*.pdf
