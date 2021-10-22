@@ -1,43 +1,69 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>A Brief Introduction to Multi-Stage Trials for Developing Dynamic Treatment Regimens</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Nicholas J. Seewald, Ph.D" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script src="libs/fabric/fabric.min.js"></script>
-    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
-    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="../extras.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# A Brief Introduction to Multi-Stage Trials for Developing Dynamic Treatment Regimens
-### Nicholas J. Seewald, Ph.D
-### 22 October 2021 
-
-Working Group on Clinical Research, 
-University of Rochester Medical Center
-
 ---
-
+title: "A Brief Introduction to Multi-Stage Trials for Developing Dynamic Treatment Regimens"
+author: "Nicholas J. Seewald, Ph.D"
+date: "22 October 2021 &#13;&#13;Working Group on Clinical Research, &#13;University of Rochester Medical Center"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+      ratio: "16:9"
+      beforeInit: "macros.js"
+    css: ["xaringan-themer.css", "../extras.css"]
+---
 class: inverse, center, middle
 
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 
+library(khroma)  # for colors
+library(here)    # for file paths
+library(emo)     # for emoji
+# library(fontawesome) 
 
+colscheme <- color("romaO")
 
+set.seed(1059)
+
+# helper functions
+expit <- \(x) exp(x) / (1 + exp(x))
+
+source(here("bibhelper.R"))
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = "authoryear",
+           style = "markdown",
+           dashed = TRUE,
+           max.names = 1)
+bib <- ReadBib(here("refs.bib"))
+```
+
+```{r xaringan-themer, include = FALSE, warning = FALSE}
+library(xaringanthemer)
+style_duo_accent(primary_color = "#002D72", # JHU Heritage Blue
+                 secondary_color = "#68ACE5", # JHU Spirit Blue
+                 header_font_google = google_font("Source Serif Pro", "600", "600i"),
+                 text_font_google = google_font("Source Sans Pro", "400", "400i", "600"),
+                 code_font_google = google_font("Soure Code", "400"),
+                 text_font_size = "22pt",
+                 code_font_size = "18pt",
+                 header_background_auto = TRUE)
+
+xaringanExtra::use_tachyons()
+xaringanExtra::use_scribble()
+xaringanExtra::use_fit_screen()
+```
 
 # Follow along!
 
-Slides are available at &lt;slides.nickseewald.com/urmc&gt;
+Slides are available at <slides.nickseewald.com/urmc>
 
-Materials are partially adapted from workshops given by the [d3lab](https://d3lab.isr.umich.edu) at the University of Michigan Institute for Social Research and from &lt;a name=cite-seewaldSequentialMultipleAssignment2021&gt;&lt;/a&gt;[Seewald, Hackworth, and Almirall (2021)](https://doi.org/10.1007/978-3-319-52677-5_280-1).
+Materials are partially adapted from workshops given by the [d3lab](https://d3lab.isr.umich.edu) at the University of Michigan Institute for Social Research and from `r TextCite(bib, "seewaldSequentialMultipleAssignment2021")`.
 
 ---
 # What is a dynamic treatment regimen?
@@ -81,13 +107,13 @@ Dynamic treatment regimens consist of
 ---
 # Example DTR: Alcohol Use Disorder
 
-- **Naltrexone** is known to diminish pleasurable effects of alcohol &lt;a name=cite-oslinTargetingTreatmentsAlcohol2006&gt;&lt;/a&gt;([Oslin, Berrettini, and O'Brien, 2006](https://doi.org/10/fgcfbk))
+- **Naltrexone** is known to diminish pleasurable effects of alcohol `r Citep(bib, "oslinTargetingTreatmentsAlcohol2006")`
 
-- Response to naltrexone is heterogeneous (adherence, biology, social support, etc.) &lt;a name=cite-nahum-shaniSMARTDataAnalysis2017&gt;&lt;/a&gt;([Nahum-Shani, Ertefaie, Lu, Lynch, McKay, Oslin, and Almirall, 2017](https://doi.org/10/ghpb9n))
+- Response to naltrexone is heterogeneous (adherence, biology, social support, etc.) `r Citep(bib, "nahum-shaniSMARTDataAnalysis2017")`
 
 - Heterogeneity necessitates a supportive intervention alongside naltrexone
   - **Medical management**: face-to-face clinical support + adherence monitoring
-  - **Combined behavioral intervention**: targets patient's motivation for change, emphasizes social support &lt;a name=cite-longabaughOriginsIssuesOptions2005&gt;&lt;/a&gt;([Longabaugh, Zweben, Locastro, and Miller, 2005](https://doi.org/10/ghpb9f))
+  - **Combined behavioral intervention**: targets patient's motivation for change, emphasizes social support `r Citep(bib, "longabaughOriginsIssuesOptions2005")`
 
 ---
 # Example DTR: Alcohol Use Disorder
@@ -124,8 +150,8 @@ A **tailoring variable** is used to individualize treatment at each decision poi
 
 Here, the tailoring variable is the **number of self-reported heavy drinking days following treatment initiation**.
 
-- `\(\geq\)` 2 heavy drinking days `\(\rightarrow\)` _non-responder_
-- `\(&lt;\)` 2 heavy drinking days `\(\rightarrow\)` _responder_
+- $\geq$ 2 heavy drinking days $\rightarrow$ _non-responder_
+- $<$ 2 heavy drinking days $\rightarrow$ _responder_
 
 ---
 # Some Notes on Tailoring Variables
@@ -180,7 +206,7 @@ A **decision rule** recommends an _intervention option_ for individuals at each 
 A **decision rule** recommends an _intervention option_ for individuals at each decision point, possibly based on prior information (i.e., a tailoring variable)
 
 ---
-# Example DTR: Proximal &amp; Distal Outcomes
+# Example DTR: Proximal & Distal Outcomes
 
 A dynamic treatment regimen's design should be guided by both short-term (**proximal**) and long-term (**distal**) outcomes
 
@@ -188,7 +214,7 @@ A dynamic treatment regimen's design should be guided by both short-term (**prox
   - Long-term, example DTR should reduce _likelihood of alcohol use relapse_
   
 - **Proximal outcomes** are the near-term goals of the DTR; perhaps a mechanism by which we can achieve the distal outcome.
-  - Short-term, we want to lower risk of relapse by reducing the _proportion of drinking and heavy-drinking days over 8 weeks after adaptation_ &lt;a name=cite-leiSMARTDesignBuilding2012&gt;&lt;/a&gt;([Lei, Nahum-Shani, Lynch, Oslin, and Murphy, 2012](https://doi.org/10.1146/annurev-clinpsy-032511-143152))
+  - Short-term, we want to lower risk of relapse by reducing the _proportion of drinking and heavy-drinking days over 8 weeks after adaptation_ `r Citep(bib, "leiSMARTDesignBuilding2012")`
   
 ---
 # Scientific Questions about DTRs
@@ -398,7 +424,7 @@ Focus on a few scientific aims about developing a high-quality DTR.
 
 .pull-right[
 Hypothetical hypothesis might be:
-&gt; A stringent definition of non-response in the context of a dynamic treatment regimen will lead to fewer heavy drinking days, on average, than a lenient definition of non-response.
+> A stringent definition of non-response in the context of a dynamic treatment regimen will lead to fewer heavy drinking days, on average, than a lenient definition of non-response.
 ]
 
 ---
@@ -434,7 +460,7 @@ Hypothetical hypothesis might be:
 ]
 .pull-right[
 Hypothetical hypothesis:
-&gt; Individuals who "respond" to naltrexone and medical management benefit more from naltrexone along with a telehealth intervention than naltrexone alone, on average, in terms of proportion of heavy drinking days after 8 weeks.
+> Individuals who "respond" to naltrexone and medical management benefit more from naltrexone along with a telehealth intervention than naltrexone alone, on average, in terms of proportion of heavy drinking days after 8 weeks.
 ]
 
 ---
@@ -447,7 +473,7 @@ Hypothetical hypothesis:
 ]
 ]
 .pull-right[
-- Analysis is a two-group comparison of subgroups A &amp; E vs. subgroups B &amp; F
+- Analysis is a two-group comparison of subgroups A & E vs. subgroups B & F
 - Sample size is as for a two-group comparison, upweighted by response rate.
 
 ---
@@ -470,7 +496,7 @@ Hypothetical hypothesis:
 
 .pull-right[
   Hypothetical hypothesis:
-  &gt; The red DTR will lead to fewer heavy drinking days after 8 weeks, on average, as compared to the blue DTR.
+  > The red DTR will lead to fewer heavy drinking days after 8 weeks, on average, as compared to the blue DTR.
 ]
 
 ---
@@ -492,185 +518,32 @@ Hypothetical hypothesis:
 ---
 # References
 
-&lt;a name=bib-leiSMARTDesignBuilding2012&gt;&lt;/a&gt;[Lei, H. et
-al.](#cite-leiSMARTDesignBuilding2012) (2012). "A "SMART" Design for
-Building Individualized Treatment Sequences". In: _Annual Review of
-Clinical Psychology_ 8.1, pp. 21-48. ISSN: 1548-5943, 1548-5951. DOI:
-[10.1146/annurev-clinpsy-032511-143152](https://doi.org/10.1146%2Fannurev-clinpsy-032511-143152).
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 1, stop = 4, .opts = list(bib.style = "authoryear"))
+```
 
-&lt;a name=bib-longabaughOriginsIssuesOptions2005&gt;&lt;/a&gt;[Longabaugh, R. et
-al.](#cite-longabaughOriginsIssuesOptions2005) (2005). "Origins, Issues
-and Options in the Development of the Combined Behavioral
-Intervention." In: _J. Stud. Alcohol Suppl._, pp. 179-187. ISSN:
-0363-468X. DOI: [10/ghpb9f](https://doi.org/10%2Fghpb9f).
+---
+# References
 
-&lt;a name=bib-nahum-shaniSMARTDataAnalysis2017&gt;&lt;/a&gt;[Nahum-Shani, I. et
-al.](#cite-nahum-shaniSMARTDataAnalysis2017) (2017). "A SMART Data
-Analysis Method for Constructing Adaptive Treatment Strategies for
-Substance Use Disorders". In: _Addiction_ 112.5, pp. 901-909. ISSN:
-1360-0443. DOI: [10/ghpb9n](https://doi.org/10%2Fghpb9n).
-
-&lt;a name=bib-oslinTargetingTreatmentsAlcohol2006&gt;&lt;/a&gt;[Oslin, D. W. et
-al.](#cite-oslinTargetingTreatmentsAlcohol2006) (2006). "Targeting
-Treatments for Alcohol Dependence: The Pharmacogenetics of Naltrexone".
-In: _Addiction Biology_ 11.3-4, pp. 397-403. ISSN: 1369-1600. DOI:
-[10/fgcfbk](https://doi.org/10%2Ffgcfbk).
-
-&lt;a name=bib-seewaldSequentialMultipleAssignment2021&gt;&lt;/a&gt;[Seewald, N. J.
-et al.](#cite-seewaldSequentialMultipleAssignment2021) (2021).
-"Sequential, Multiple Assignment, Randomized Trials (SMART)". In:
-_Principles and Practice of Clinical Trials_. Ed. by S. Piantadosi and
-C. L. Meinert. Cham: Springer International Publishing, pp. 1-19. ISBN:
-978-3-319-52677-5. DOI:
-[10.1007/978-3-319-52677-5_280-1](https://doi.org/10.1007%2F978-3-319-52677-5_280-1).
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 5, .opts = list(bib.style = "authoryear"))
+```
 
 ---
 # Additional Reading
 
-- Materials from 3-day workshop on SMARTs and DTRs: &lt;https://d3lab.isr.umich.edu/workshop/getting-smart-about-adaptive-interventions-in-education-2019/&gt;
+- Materials from 3-day workshop on SMARTs and DTRs: <https://d3lab.isr.umich.edu/workshop/getting-smart-about-adaptive-interventions-in-education-2019/>
 
 - Lei, H., I. Nahum-Shani, K. Lynch, D. Oslin, and S.A. Murphy. “A ‘SMART’ Design for Building Individualized Treatment Sequences.” Annual Review of Clinical Psychology 8, no. 1 (2012): 21–48. https://doi.org/10.1146/annurev-clinpsy-032511-143152.
 
 - Nahum-Shani, I., M. Qian, D. Almirall, W.E. Pelham, B. Gnagy, G.A. Fabiano, J.G. Waxmonsky, J. Yu, and S.A. Murphy. “Experimental Design and Primary Data Analysis Methods for Comparing Adaptive Interventions.” Psychological Methods 17, no. 4 (2012): 457–77. https://doi.org/10.1037/a0029372.
 
-
-- 
-
-
-
 ---
 class: center, inverse, middle
-exclude: true
 # Reach out with questions (or ideas)! 
 
- [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
+`r #fa(name = "far fa-envelope")` [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
 
- [@nickseewald](https://twitter.com/nickseewald)
+`r #fa(name = "twitter")` [@nickseewald](https://twitter.com/nickseewald)
 
- [nickseewald.com](https://www.nickseewald.com)
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"slideNumberFormat": "%current%",
-"ratio": "16:9"
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
+`r #fa(name = "link")` [nickseewald.com](https://www.nickseewald.com)

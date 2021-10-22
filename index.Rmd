@@ -1,7 +1,7 @@
 ---
 title: "A Brief Introduction to Multi-Stage Trials for Developing Dynamic Treatment Regimens"
-author: "Nicholas J. Seewald, Ph.D.&#13;nickseewald.com"
-date: "22 October 2021"
+author: "Nicholas J. Seewald, Ph.D"
+date: "22 October 2021 &#13;&#13;Working Group on Clinical Research, &#13;University of Rochester Medical Center"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(khroma)  # for colors
 library(here)    # for file paths
 library(emo)     # for emoji
-library(fontawesome) 
+# library(fontawesome) 
 
 colscheme <- color("romaO")
 
@@ -336,10 +336,34 @@ If any of these aren't true, you don't need a SMART!
 # Do I need a SMART?
 ## What if we know what to do for responders?
 
+.center[
+  ![:scale 60%](images/ExTENd_hypothetical_noResp.png)
+]
+
+---
+# Do I need a SMART?
+## What if we know what to do for responders?
+
+.center[
+  ![:scale 70%](images/ExTENd_hypothetical_noResp_newTrial.png)
+]
+
 
 ---
 # Do I need a SMART?
 ## What if we know what to do initially?
+
+.center[
+  ![:scale 60%](images/ExTENd_hypothetical_init.png)
+]
+
+---
+# Do I need a SMART?
+## What if we know what to do initially?
+
+.center[
+  ![:scale 80%](images/ExTENd_hypothetical_init_newTrial.png)
+]
 
 ---
 # Design Considerations: Tailoring Variables
@@ -385,38 +409,140 @@ Focus on a few scientific aims about developing a high-quality DTR.
 # Design Considerations: Primary Aims
 ## Compare initial intervention options
 
----
-# Design Considerations: Primary Aims
-## Compare initial intervention options
-.pull-left[]
-
-.pull-right[
-
+.center[
+  ![:scale 60%](images/ExTENd_primary_stg1.png)
 ]
 
 ---
 # Design Considerations: Primary Aims
+## Compare initial intervention options
+.pull-left[
+.center[
+![](images/ExTENd_primary_stg1.png)
+]
+]
+
+.pull-right[
+Hypothetical hypothesis might be:
+> A stringent definition of non-response in the context of a dynamic treatment regimen will lead to fewer heavy drinking days, on average, than a lenient definition of non-response.
+]
+
+---
+# Design Considerations: Primary Aims
+## Compare initial intervention options
+.pull-left[
+.center[
+![](images/ExTENd_primary_stg1.png)
+]
+]
+
+.pull-right[
+- Analysis is just a two-group comparison of subgroups A-D vs. subgroups E-H
+- Sample size requirements are the same as for a two-arm RCT.
+]
+
+---
+# Design Considerations: Primary Aimss
 ## Compare second-stage options among (non-)responders
+
+.center[
+  ![scale:60%](images/ExTENd_primary_stg2r.png)
+]
+
+---
+# Design Considerations: Primary Aimss
+## Compare second-stage options among (non-)responders
+
+.pull-left[
+.center[
+  ![scale:60%](images/ExTENd_primary_stg2r.png)
+]
+]
+.pull-right[
+Hypothetical hypothesis:
+> Individuals who "respond" to naltrexone and medical management benefit more from naltrexone along with a telehealth intervention than naltrexone alone, on average, in terms of proportion of heavy drinking days after 8 weeks.
+]
+
+---
+# Design Considerations: Primary Aimss
+## Compare second-stage options among (non-)responders
+
+.pull-left[
+.center[
+  ![scale:60%](images/ExTENd_primary_stg2r.png)
+]
+]
+.pull-right[
+- Analysis is a two-group comparison of subgroups A & E vs. subgroups B & F
+- Sample size is as for a two-group comparison, upweighted by response rate.
 
 ---
 # Design Considerations: Primary Aims
 ## Compare embedded dynamic treatment regimens
 
+.center[
+  ![:scale 60%](images/ExTENd_primary_dtr.png)
+]
+
+---
+# Design Considerations: Primary Aims
+## Compare embedded dynamic treatment regimens
+
+.pull-left[
+.center[
+  ![](images/ExTENd_primary_dtr.png)
+]
+]
+
+.pull-right[
+  Hypothetical hypothesis:
+  > The red DTR will lead to fewer heavy drinking days after 8 weeks, on average, as compared to the blue DTR.
+]
+
+---
+# Design Considerations: Primary Aims
+## Compare embedded dynamic treatment regimens
+
+.pull-left[
+.center[
+  ![](images/ExTENd_primary_dtr.png)
+]
+]
+
+.pull-right[
+  - Analysis is *slightly* more complicated
+  - Sample size is similar, with an extra weighting factor
+]
+
+
 ---
 # References
 
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, .opts = list(bib.style = "authoryear"))
+```
 
 ---
 # Additional Reading
 
+- Materials from 3-day workshop on SMARTs and DTRs: <https://d3lab.isr.umich.edu/workshop/getting-smart-about-adaptive-interventions-in-education-2019/>
+
+- Lei, H., I. Nahum-Shani, K. Lynch, D. Oslin, and S.A. Murphy. “A ‘SMART’ Design for Building Individualized Treatment Sequences.” Annual Review of Clinical Psychology 8, no. 1 (2012): 21–48. https://doi.org/10.1146/annurev-clinpsy-032511-143152.
+
+- Nahum-Shani, I., M. Qian, D. Almirall, W.E. Pelham, B. Gnagy, G.A. Fabiano, J.G. Waxmonsky, J. Yu, and S.A. Murphy. “Experimental Design and Primary Data Analysis Methods for Comparing Adaptive Interventions.” Psychological Methods 17, no. 4 (2012): 457–77. https://doi.org/10.1037/a0029372.
+
+
+- 
+
+
 
 ---
 class: center, inverse, middle
+exclude: true
+# Reach out with questions (or ideas)! 
 
-# Reach out! 
+`r #fa(name = "far fa-envelope")` [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
 
-`r fa(name = "far fa-envelope")` [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
+`r #fa(name = "twitter")` [@nickseewald](https://twitter.com/nickseewald)
 
-`r fa(name = "twitter")` [@nickseewald](https://twitter.com/nickseewald)
-
-`r fa(name = "link")` [nickseewald.com](https://www.nickseewald.com)
+`r #fa(name = "link")` [nickseewald.com](https://www.nickseewald.com)

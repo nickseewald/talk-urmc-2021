@@ -4,7 +4,7 @@
 \usepackage{fontspec}
 \usepackage[T1]{fontenc}
 \setmainfont{Source Sans Pro}
-\usetikzlibrary{positioning, arrows.meta, decorations.markings,calc, shapes.misc}
+\usetikzlibrary{positioning, arrows.meta, decorations.markings,calc}
 %\renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{jhnavy}{HTML}{002d72}
@@ -41,6 +41,28 @@
 			align=center,
 			draw
 		},
+		highlighttx/.style={
+			fill=jhaccent4,
+			font=\bfseries,
+			text = white
+		},
+		highlightsub/.style={
+			fill=jhaccent4,
+			font=\bfseries,
+			fill opacity = .3,
+			text opacity = 1
+		},
+		highlighttx2/.style={
+			fill=jhnavy,
+			font=\bfseries,
+			text = white
+		},
+		highlightsub2/.style={
+			fill=jhnavy,
+			font=\bfseries,
+			fill opacity = .3,
+			text opacity = 1
+		},
 		stg2tx/.style={
 			minimum width= 37mm
 		},
@@ -68,6 +90,14 @@
 			xshift=-1mm,
 			align=left
 		},
+		highlightline/.style={
+			color=jhaccent4,
+			ultra thick
+		},
+		highlightline2/.style={
+			color=jhnavy,
+			ultra thick
+		},
 		trialarrow/.style={
 			thick,
 			decoration={markings,mark=at position 1 with  {\arrow[scale=1.5,>=stealth]{>}}},
@@ -86,17 +116,17 @@
 			
 			% DESIGN I
 			
-			& & & & \node (C-I) [treatment, cross out, red] {naltrexone}; & \node (sbgp1) [subgroup] {A}; \\
-			& & \node (b1-I) [blank] {}; & \node (R2-I) [randomize, rerand, cross out, red] {R}; & &\\
-			& & & & \node (D-I) [treatment] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup] {B};\\
+			& & & & \node (C-I) [treatment, highlighttx] {naltrexone}; & \node (sbgp1) [subgroup, highlightsub] {A}; \\
+			& & \node (b1-I) [blank] {}; & \node (R2-I) [randomize, rerand] {R}; & &\\
+			& & & & \node (D-I) [treatment,highlighttx2] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup,highlightsub2] {B};\\
 			& \node (A-I) [treatment] {naltrexone + \\ medical management + \\ stringent non-response}; & & & & \\[-6mm]
 			& & & & \node (E-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp3) [subgroup] {C}; \\
 			& & \node (b2-I) [blank] {}; &s \node (R3-I) [randomize, rerand] {R}; & & \\
 			& & & & \node (F-I) [treatment] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp4) [subgroup] {D}; \\
 			\node (R1-I) [randomize] {R}; & & & & & \\
-			& & & & \node (G-I) [treatment, cross out, red] {naltrexone}; & \node (sbgp5) [subgroup] {E}; \\
-			& & \node (b3-I) [blank] {}; & \node (R4-I) [randomize, rerand, cross out, red] {R}; & & \\
-			& & & & \node (H-I) [treatment] {naltrexone + \\ telehealth}; & \node (sbgp6) [subgroup] {F}; \\
+			& & & & \node (G-I) [treatment,highlighttx] {naltrexone}; & \node (sbgp5) [subgroup,highlightsub] {E}; \\
+			& & \node (b3-I) [blank] {}; & \node (R4-I) [randomize, rerand] {R}; & & \\
+			& & & & \node (H-I) [treatment,highlighttx2] {naltrexone + \\ telehealth}; & \node (sbgp6) [subgroup,highlightsub2] {F}; \\
 			& \node (B-I) [treatment] {naltrexone + \\ medical management + \\ lenient non-response}; & & & & \\[-6mm]
 			& & & & \node (I-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp7) [subgroup] {G}; \\
 			& & \node (b4-I) [blank] {}; & \node (R5-I) [randomize, rerand] {R}; & & \\

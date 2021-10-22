@@ -42,11 +42,23 @@
 			draw
 		},
 		highlighttx/.style={
-			fill=jhaccent2,
-			font=\bfseries
+			fill=jhaccent4,
+			font=\bfseries,
+			text = white
 		},
 		highlightsub/.style={
-			fill=jhaccent2,
+			fill=jhaccent4,
+			font=\bfseries,
+			fill opacity = .3,
+			text opacity = 1
+		},
+		highlighttx2/.style={
+			fill=jhnavy,
+			font=\bfseries,
+			text = white
+		},
+		highlightsub2/.style={
+			fill=jhnavy,
 			font=\bfseries,
 			fill opacity = .3,
 			text opacity = 1
@@ -79,7 +91,11 @@
 			align=left
 		},
 		highlightline/.style={
-			color=jhaccent2,
+			color=jhaccent4,
+			ultra thick
+		},
+		highlightline2/.style={
+			color=jhnavy,
 			ultra thick
 		},
 		trialarrow/.style={
@@ -100,21 +116,21 @@
 			
 			% DESIGN I
 			
-			& & & & \node (C-I) [treatment,highlighttx] {naltrexone}; & \node (sbgp1) [subgroup,highlightsub] {A}; \\
+			& & & & \node (C-I) [treatment, highlighttx] {naltrexone}; & \node (sbgp1) [subgroup, highlightsub] {A}; \\
 			& & \node (b1-I) [blank] {}; & \node (R2-I) [randomize, rerand] {R}; & &\\
-			& & & & \node (D-I) [treatment] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup] {B};\\
+			& & & & \node (D-I) [treatment,highlighttx] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup,highlightsub] {B};\\
 			& \node (A-I) [treatment,highlighttx] {naltrexone + \\ medical management + \\ stringent non-response}; & & & & \\[-6mm]
-			& & & & \node (E-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp3) [subgroup] {C}; \\
+			& & & & \node (E-I) [treatment,highlighttx] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp3) [subgroup,highlightsub] {C}; \\
 			& & \node (b2-I) [blank] {}; &s \node (R3-I) [randomize, rerand] {R}; & & \\
 			& & & & \node (F-I) [treatment,highlighttx] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp4) [subgroup,highlightsub] {D}; \\
 			\node (R1-I) [randomize] {R}; & & & & & \\
-			& & & & \node (G-I) [treatment] {naltrexone}; & \node (sbgp5) [subgroup] {E}; \\
+			& & & & \node (G-I) [treatment,highlighttx2] {naltrexone}; & \node (sbgp5) [subgroup,highlightsub2] {E}; \\
 			& & \node (b3-I) [blank] {}; & \node (R4-I) [randomize, rerand] {R}; & & \\
-			& & & & \node (H-I) [treatment] {naltrexone + \\ telehealth}; & \node (sbgp6) [subgroup] {F}; \\
-			& \node (B-I) [treatment] {naltrexone + \\ medical management + \\ lenient non-response}; & & & & \\[-6mm]
-			& & & & \node (I-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp7) [subgroup] {G}; \\
+			& & & & \node (H-I) [treatment,highlighttx2] {naltrexone + \\ telehealth}; & \node (sbgp6) [subgroup,highlightsub2] {F}; \\
+			& \node (B-I) [treatment,highlighttx2] {naltrexone + \\ medical management + \\ lenient non-response}; & & & & \\[-6mm]
+			& & & & \node (I-I) [treatment,highlighttx2] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp7) [subgroup,highlightsub2] {G}; \\
 			& & \node (b4-I) [blank] {}; & \node (R5-I) [randomize, rerand] {R}; & & \\
-			& & & & \node (J-I) [treatment] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp8) [subgroup] {H};\\
+			& & & & \node (J-I) [treatment,highlighttx2] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp8) [subgroup,highlightsub2] {H};\\
 		};
 	
 %		\draw[dashed,lightgray] (time1.north) -- (R2-III.south);
@@ -131,19 +147,19 @@
 		\draw[trialarrow,highlightline] (b1-I.center) -- node[rlabel] {Responders} (R2-I.west);
 		\draw[trialarrow,highlightline] (b2-I.center) -- node[nrlabel] {Non-Responders} (R3-I.west);
 		\draw[trialarrow,highlightline] (R2-I.east) -- (C-I.west);
-		\draw[trialarrow] (R2-I.east) -- (D-I.west);
+		\draw[trialarrow,highlightline] (R2-I.east) -- (D-I.west);
 		\draw[trialarrow,highlightline] (R3-I.east) -- (E-I.west);
-		\draw[trialarrow] (R3-I.east) -- (F-I.west);
+		\draw[trialarrow,highlightline] (R3-I.east) -- (F-I.west);
 		
 		\draw[trialarrow] (R1-I) -- (B-I.west);
-		\draw (B-I.east) -- (b3-I.center);
-		\draw (B-I.east) -- (b4-I.center);
-		\draw[trialarrow] (b3-I.center) -- node[rlabel] {Responders} (R4-I.west);
-		\draw[trialarrow] (b4-I.center) -- node[nrlabel] {Non-Responders} (R5-I.west);
-		\draw[trialarrow] (R4-I.east) -- (G-I.west);
-		\draw[trialarrow] (R4-I.east) -- (H-I.west);
-		\draw[trialarrow] (R5-I.east) -- (I-I.west);
-		\draw[trialarrow] (R5-I.east) -- (J-I.west);
+		\draw[highlightline2] (B-I.east) -- (b3-I.center);
+		\draw[highlightline2] (B-I.east) -- (b4-I.center);
+		\draw[trialarrow,highlightline2] (b3-I.center) -- node[rlabel] {Responders} (R4-I.west);
+		\draw[trialarrow,highlightline2] (b4-I.center) -- node[nrlabel] {Non-Responders} (R5-I.west);
+		\draw[trialarrow,highlightline2] (R4-I.east) -- (G-I.west);
+		\draw[trialarrow,highlightline2] (R4-I.east) -- (H-I.west);
+		\draw[trialarrow,highlightline2] (R5-I.east) -- (I-I.west);
+		\draw[trialarrow,highlightline2] (R5-I.east) -- (J-I.west);
 		
 		\draw[subsetarrow] (C-I.east) -- (sbgp1.west);
 		\draw[subsetarrow] (D-I.east) -- (sbgp2.west);

@@ -82,25 +82,17 @@
 		}, thick]
 						
 		\matrix[row sep=-2mm,column sep=12mm] { %
-			& \node [align=center,xshift=6mm] {\large \textbf{Stage 1}}; & & & \node [align=center,xshift=5mm] {\large \textbf{Stage 2}}; & \node[align=center] {\textbf{Subgroup}};\\[5mm]
+			\node [align=center,xshift=6mm] {\large \textbf{Stage 1}}; & & & \node [align=center,xshift=5mm] {\large \textbf{Stage 2}}; & \node[align=center] {\textbf{Subgroup}};\\[5mm]
 			
 			% DESIGN I
 			
-			& & & & \node (C-I) [treatment, cross out, red] {naltrexone}; & \node (sbgp1) [subgroup] {A}; \\
-			& & \node (b1-I) [blank] {}; & \node (R2-I) [randomize, rerand, cross out, red] {R}; & &\\
-			& & & & \node (D-I) [treatment] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup] {B};\\
-			& \node (A-I) [treatment] {naltrexone + \\ medical management + \\ stringent non-response}; & & & & \\[-6mm]
-			& & & & \node (E-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp3) [subgroup] {C}; \\
-			& & \node (b2-I) [blank] {}; &s \node (R3-I) [randomize, rerand] {R}; & & \\
-			& & & & \node (F-I) [treatment] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp4) [subgroup] {D}; \\
-			\node (R1-I) [randomize] {R}; & & & & & \\
-			& & & & \node (G-I) [treatment, cross out, red] {naltrexone}; & \node (sbgp5) [subgroup] {E}; \\
-			& & \node (b3-I) [blank] {}; & \node (R4-I) [randomize, rerand, cross out, red] {R}; & & \\
-			& & & & \node (H-I) [treatment] {naltrexone + \\ telehealth}; & \node (sbgp6) [subgroup] {F}; \\
-			& \node (B-I) [treatment] {naltrexone + \\ medical management + \\ lenient non-response}; & & & & \\[-6mm]
-			& & & & \node (I-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp7) [subgroup] {G}; \\
-			& & \node (b4-I) [blank] {}; & \node (R5-I) [randomize, rerand] {R}; & & \\
-			& & & & \node (J-I) [treatment] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp8) [subgroup] {H};\\
+			& & & \node (C-I) [treatment] {naltrexone}; & \node (sbgp1) [subgroup] {A}; \\
+			& \node (b1-I) [blank] {}; & \node (R2-I) [randomize, rerand] {R}; & &\\
+			& & & \node (D-I) [treatment] {naltrexone +\\telehealth}; & \node (sbgp2) [subgroup] {B};\\
+			\node (A-I) [treatment] {naltrexone + \\ medical management + \\ stringent non-response}; & & & & \\[-6mm]
+			& & & \node (E-I) [treatment] {behavioral intervention + \\ medical management + \\ placebo}; & \node (sbgp3) [subgroup] {C}; \\
+			& \node (b2-I) [blank] {}; &s \node (R3-I) [randomize, rerand] {R}; & & \\
+			& & & \node (F-I) [treatment] {behavioral intervention + \\ medical management + \\ naltrexone}; & \node (sbgp4) [subgroup] {D}; \\
 		};
 	
 %		\draw[dashed,lightgray] (time1.north) -- (R2-III.south);
@@ -110,8 +102,7 @@
 %		\draw[dashed,lightgray] (time2.north west) --++(90:33cm);
 	
 		% DESIGN I LINES
-	
-		\draw[trialarrow] (R1-I) -- (A-I.west);
+
 		\draw (A-I.east) -- (b1-I.center);
 		\draw (A-I.east) -- (b2-I.center);
 		\draw[trialarrow] (b1-I.center) -- node[rlabel] {Responders} (R2-I.west);
@@ -121,24 +112,10 @@
 		\draw[trialarrow] (R3-I.east) -- (E-I.west);
 		\draw[trialarrow] (R3-I.east) -- (F-I.west);
 		
-		\draw[trialarrow] (R1-I) -- (B-I.west);
-		\draw (B-I.east) -- (b3-I.center);
-		\draw (B-I.east) -- (b4-I.center);
-		\draw[trialarrow] (b3-I.center) -- node[rlabel] {Responders} (R4-I.west);
-		\draw[trialarrow] (b4-I.center) -- node[nrlabel] {Non-Responders} (R5-I.west);
-		\draw[trialarrow] (R4-I.east) -- (G-I.west);
-		\draw[trialarrow] (R4-I.east) -- (H-I.west);
-		\draw[trialarrow] (R5-I.east) -- (I-I.west);
-		\draw[trialarrow] (R5-I.east) -- (J-I.west);
-		
 		\draw[subsetarrow] (C-I.east) -- (sbgp1.west);
 		\draw[subsetarrow] (D-I.east) -- (sbgp2.west);
 		\draw[subsetarrow] (E-I.east) -- (sbgp3.west);
 		\draw[subsetarrow] (F-I.east) -- (sbgp4.west);
-		\draw[subsetarrow] (G-I.east) -- (sbgp5.west);
-		\draw[subsetarrow] (H-I.east) -- (sbgp6.west);
-		\draw[subsetarrow] (I-I.east) -- (sbgp7.west);
-		\draw[subsetarrow] (J-I.east) -- (sbgp8.west);
 		
 		% TIME LINES
 		
