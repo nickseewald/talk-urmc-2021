@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(khroma)  # for colors
 library(here)    # for file paths
 library(emo)     # for emoji
-# library(fontawesome) 
+library(fontawesome)
 
 colscheme <- color("romaO")
 
@@ -519,11 +519,14 @@ Hypothetical hypothesis:
 
 ---
 # Sample Size Resources
+## for comparing dynamic treatment regimens
+
 - **Continuous Outcomes:** `r Citet(bib, "oettingStatisticalMethodologySMART2011", "ogbagaberDesignSequentiallyRandomized2016", max.names = 1)`
 - **Binary Outcomes:** `r Citet(bib, "kidwellDesignAnalysisConsiderations2018", max.names = 1)`
 - **Survival Outcomes:** `r Citet(bib, "fengSampleSizeTwostage2009", "liSampleSizeFormulae2011", max.names = 1)`
 - **Cluster-Randomized:** `r Citet(bib, "necampComparingClusterlevelDynamic2017", max.names = 1)`
 - **Longitudinal:** `r Citet(bib, "seewaldSampleSizeConsiderations2020", max.names = 1)`
+- **Finding the best embedded DTR:** `r Citet(bib, "artmanPowerAnalysisSMART2018", max.names = 1)`
 
 ---
 # Additional Reading
@@ -570,15 +573,19 @@ print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 5, stop = 7)
 ```{r, results='asis', echo=FALSE, warning=FALSE}
 print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 8, stop = 10)
 ```
+---
+# References
 
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 11, stop = NULL)
+```
 
 ---
 class: center, inverse, middle
-exclude: true
 # Reach out with questions (or ideas)! 
 
-`r #fa(name = "far fa-envelope")` [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
+`r fa(name = "far fa-envelope")` [nseewal1@jhu.edu](mailto:nseewal1@jhu.edu)
 
-`r #fa(name = "twitter")` [@nickseewald](https://twitter.com/nickseewald)
+`r fa(name = "twitter")` [@nickseewald](https://twitter.com/nickseewald)
 
-`r #fa(name = "link")` [nickseewald.com](https://www.nickseewald.com)
+`r fa(name = "link")` [nickseewald.com](https://www.nickseewald.com)
