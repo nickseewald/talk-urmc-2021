@@ -130,7 +130,7 @@ Dynamic treatment regimens consist of
 ---
 # Example DTR: Decision Points
 
-A **decision point** is a time at which 
+A **decision point** is a time at which treatment might be adapted to the individual.
 
 ![:scale 90%](images/decision_points.png)
 - **Decision point 1:** Treatment outset -- decide how to initiate treatment
