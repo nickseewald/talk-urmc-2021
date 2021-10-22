@@ -61,7 +61,7 @@ xaringanExtra::use_fit_screen()
 
 # Follow along!
 
-Slides are available at <slides.nickseewald.com/urmc>
+Slides are available at <urmc-smarts-2021.netlify.app>
 
 Materials are partially adapted from workshops given by the [d3lab](https://d3lab.isr.umich.edu) at the University of Michigan Institute for Social Research and from `r TextCite(bib, "seewaldSequentialMultipleAssignment2021")`.
 
