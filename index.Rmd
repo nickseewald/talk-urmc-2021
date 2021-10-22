@@ -1,6 +1,6 @@
 ---
 title: "A Brief Introduction to Multi-Stage Trials for Developing Dynamic Treatment Regimens"
-author: "Nicholas J. Seewald, Ph.D"
+author: "Nicholas J. Seewald, Ph.D."
 date: "22 October 2021 &#13;&#13;Working Group on Clinical Research, &#13;University of Rochester Medical Center"
 output:
   xaringan::moon_reader:
@@ -61,6 +61,7 @@ xaringanExtra::use_fit_screen()
 
 # Follow along!
 
+Slides are available at <urmc-smarts-2021.netlify.app>
 
 Materials are partially adapted from workshops given by the [d3lab](https://d3lab.isr.umich.edu) at the University of Michigan Institute for Social Research and from `r TextCite(bib, "seewaldSequentialMultipleAssignment2021")`.
 
@@ -106,13 +107,13 @@ Dynamic treatment regimens consist of
 ---
 # Example DTR: Alcohol Use Disorder
 
-- **Naltrexone** is known to diminish pleasurable effects of alcohol `r Citep(bib, "oslinTargetingTreatmentsAlcohol2006")`
+- **Naltrexone** is known to diminish pleasurable effects of alcohol `r Citep(bib, "oslinTargetingTreatmentsAlcohol2006", max.names = 1)`
 
-- Response to naltrexone is heterogeneous (adherence, biology, social support, etc.) `r Citep(bib, "nahum-shaniSMARTDataAnalysis2017")`
+- Response to naltrexone is heterogeneous (adherence, biology, social support, etc.) `r Citep(bib, "nahum-shaniSMARTDataAnalysis2017", max.names = 1)`
 
 - Heterogeneity necessitates a supportive intervention alongside naltrexone
   - **Medical management**: face-to-face clinical support + adherence monitoring
-  - **Combined behavioral intervention**: targets patient's motivation for change, emphasizes social support `r Citep(bib, "longabaughOriginsIssuesOptions2005")`
+  - **Combined behavioral intervention**: targets patient's motivation for change, emphasizes social support `r Citep(bib, "longabaughOriginsIssuesOptions2005", max.names = 1)`
 
 ---
 # Example DTR: Alcohol Use Disorder
@@ -213,7 +214,7 @@ A dynamic treatment regimen's design should be guided by both short-term (**prox
   - Long-term, example DTR should reduce _likelihood of alcohol use relapse_
   
 - **Proximal outcomes** are the near-term goals of the DTR; perhaps a mechanism by which we can achieve the distal outcome.
-  - Short-term, we want to lower risk of relapse by reducing the _proportion of drinking and heavy-drinking days over 8 weeks after adaptation_ `r Citep(bib, "leiSMARTDesignBuilding2012")`
+  - Short-term, we want to lower risk of relapse by reducing the _proportion of drinking and heavy-drinking days over 8 weeks after adaptation_ `r Citep(bib, "leiSMARTDesignBuilding2012", max.names = 1)`
   
 ---
 # Scientific Questions about DTRs
@@ -511,30 +512,64 @@ Hypothetical hypothesis:
 ]
 
 .pull-right[
-  - Analysis is *slightly* more complicated
-  - Sample size is similar, with an extra weighting factor
+- Analysis is *slightly* more complicated, but still 
+- Sample size formulae available (see additional resources)
 ]
+
+
+---
+# Sample Size Resources
+- **Continuous Outcomes:** `r Citet(bib, "oettingStatisticalMethodologySMART2011", "ogbagaberDesignSequentiallyRandomized2016", max.names = 1)`
+- **Binary Outcomes:** `r Citet(bib, "kidwellDesignAnalysisConsiderations2018", max.names = 1)`
+- **Survival Outcomes:** `r Citet(bib, "fengSampleSizeTwostage2009", "liSampleSizeFormulae2011", max.names = 1)`
+- **Cluster-Randomized:** `r Citet(bib, "necampComparingClusterlevelDynamic2017", max.names = 1)`
+- **Longitudinal:** `r Citet(bib, "seewaldSampleSizeConsiderations2020", max.names = 1)`
+
+---
+# Additional Reading
+
+Materials from 3-day workshop on SMARTs and DTRs: <https://d3lab.isr.umich.edu/workshop/getting-smart-about-adaptive-interventions-in-education-2019/>
+
+More in-depth, full book on DTRs:
+
+Kosorok, M.R., and E.E.M. Moodie, eds. 2015. Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine. Philadelphia, PA: Society for Industrial and Applied Mathematics. https://doi.org/10.1137/1.9781611974188.
+
+Overview of many different SMART in the field:
+
+Lei, H., I. Nahum-Shani, K. Lynch, D. Oslin, and S.A. Murphy. “A ‘SMART’ Design for Building Individualized Treatment Sequences.” Annual Review of Clinical Psychology 8, no. 1 (2012): 21–48. https://doi.org/10.1146/annurev-clinpsy-032511-143152.
+
+---
+# Additional Reading
+
+A nice introduction to SMARTs and DTRs in behavioral science:
+
+Nahum-Shani, I., M. Qian, D. Almirall, W.E. Pelham, B. Gnagy, G.A. Fabiano, J.G. Waxmonsky, J. Yu, and S.A. Murphy. “Experimental Design and Primary Data Analysis Methods for Comparing Adaptive Interventions.” Psychological Methods 17, no. 4 (2012): 457–77. https://doi.org/10.1037/a0029372.
+
+An introduction to "Q-learning" for building more "deeply tailored" DTRs:
+
+Nahum-Shani, I., M. Qian, D. Almirall, W.E. Pelham, B. Gnagy, G.A. Fabiano, J.G. Waxmonsky, J. Yu, and S.A. Murphy. 2012. “Q-Learning: A Data Analysis Method for Constructing Adaptive Interventions.” Psychological Methods 17 (4): 478–94. https://doi.org/10.1037/a0029373.
 
 
 ---
 # References
 
 ```{r, results='asis', echo=FALSE, warning=FALSE}
-print_bib_rmd(bib, .opts = list(bib.style = "authoryear"))
+print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 1, stop = 4)
 ```
 
 ---
-# Additional Reading
+# References
 
-- Materials from 3-day workshop on SMARTs and DTRs: <https://d3lab.isr.umich.edu/workshop/getting-smart-about-adaptive-interventions-in-education-2019/>
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 5, stop = 7)
+```
 
-- Lei, H., I. Nahum-Shani, K. Lynch, D. Oslin, and S.A. Murphy. “A ‘SMART’ Design for Building Individualized Treatment Sequences.” Annual Review of Clinical Psychology 8, no. 1 (2012): 21–48. https://doi.org/10.1146/annurev-clinpsy-032511-143152.
+---
+# References
 
-- Nahum-Shani, I., M. Qian, D. Almirall, W.E. Pelham, B. Gnagy, G.A. Fabiano, J.G. Waxmonsky, J. Yu, and S.A. Murphy. “Experimental Design and Primary Data Analysis Methods for Comparing Adaptive Interventions.” Psychological Methods 17, no. 4 (2012): 457–77. https://doi.org/10.1037/a0029372.
-
-
-- 
-
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, .opts = list(bib.style = "authoryear"), start = 8, stop = 10)
+```
 
 
 ---
