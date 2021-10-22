@@ -61,7 +61,6 @@ xaringanExtra::use_fit_screen()
 
 # Follow along!
 
-Slides are available at <urmc-smarts-2021.netlify.app>
 
 Materials are partially adapted from workshops given by the [d3lab](https://d3lab.isr.umich.edu) at the University of Michigan Institute for Social Research and from `r TextCite(bib, "seewaldSequentialMultipleAssignment2021")`.
 
@@ -442,16 +441,16 @@ Hypothetical hypothesis might be:
 ]
 
 ---
-# Design Considerations: Primary Aimss
-## Compare second-stage options among (non-)responders
+# Design Considerations: Primary Aims
+### Compare second-stage options among (non-)responders
 
 .center[
-  ![scale:60%](images/ExTENd_primary_stg2r.png)
+  ![:scale 60%](images/ExTENd_primary_stg2r.png)
 ]
 
 ---
-# Design Considerations: Primary Aimss
-## Compare second-stage options among (non-)responders
+# Design Considerations: Primary Aims
+### Compare second-stage options among (non-)responders
 
 .pull-left[
 .center[
@@ -461,6 +460,7 @@ Hypothetical hypothesis might be:
 .pull-right[
 Hypothetical hypothesis:
 > Individuals who "respond" to naltrexone and medical management benefit more from naltrexone along with a telehealth intervention than naltrexone alone, on average, in terms of proportion of heavy drinking days after 8 weeks.
+
 ]
 
 ---
@@ -475,6 +475,7 @@ Hypothetical hypothesis:
 .pull-right[
 - Analysis is a two-group comparison of subgroups A & E vs. subgroups B & F
 - Sample size is as for a two-group comparison, upweighted by response rate.
+]
 
 ---
 # Design Considerations: Primary Aims
