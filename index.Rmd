@@ -5,6 +5,7 @@ date: "22 October 2021 &#13;&#13;Working Group on Clinical Research, &#13;Univer
 output:
   xaringan::moon_reader:
     lib_dir: libs
+    keep_md: true
     nature:
       highlightStyle: github
       highlightLines: true
@@ -12,7 +13,7 @@ output:
       slideNumberFormat: "%current%"
       ratio: "16:9"
       beforeInit: "macros.js"
-    css: ["xaringan-themer.css", "../extras.css"]
+    css: ["xaringan-themer.css", "extras.css"]
 ---
 class: inverse, center, middle
 

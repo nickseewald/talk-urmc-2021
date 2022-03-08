@@ -8,10 +8,8 @@
 }
 
 .title-slide {
-  background-image: url(logo.png);
-  background-position: bottom right;
-  background-size: 30%;
-  background-repeat: no-repeat;
+  background-image: url(titleslide.png);
+  background-size: 100%;
 }
 
 .inverse code {
@@ -22,6 +20,7 @@
   font-size: 55pt;
   margin-bottom: 0;
   margin-top: 0;
+  text-align: left;
 }
 
 .title-slide h2 {
@@ -34,6 +33,7 @@
   margin: .25em;
   color: #fff;
     font-family: Source Sans Pro;
+  text-align: right;
 }
 
 th {
