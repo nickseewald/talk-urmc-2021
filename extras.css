@@ -10,6 +10,10 @@
 .title-slide {
   background-image: url(titleslide.png);
   background-size: 100%;
+  padding-left: 256px;
+  padding-right: 32px;
+  padding-top: 96px;
+  padding-bottom: 32px;
 }
 
 .inverse code {
@@ -17,10 +21,11 @@
 }
 
 .title-slide h1 {
-  font-size: 55pt;
-  margin-bottom: 0;
+  font-size: 48pt;
+  margin-bottom: 36px;
   margin-top: 0;
-  text-align: left;
+  text-align: center;
+  background: rgba(0, 0, 0, 0);
 }
 
 .title-slide h2 {
@@ -32,8 +37,8 @@
 .title-slide h3 {
   margin: .25em;
   color: #fff;
-    font-family: Source Sans Pro;
-  text-align: right;
+  font-family: Source Sans Pro;
+  text-align: center;
 }
 
 th {
